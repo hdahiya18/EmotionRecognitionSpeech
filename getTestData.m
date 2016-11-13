@@ -50,9 +50,9 @@ mapEngtoNum('fear') = 4;
 mapEngtoNum('happiness') = 5;
 mapEngtoNum('sadness') = 6;
 mapEngtoNum('neutral') = 7;
-test = {};
+testData = {};
 for i = 1:numClasses
-    test{i} = [];
+    testData{i} = [];
  end
 fileNum = 1;
 targets = [];
@@ -78,11 +78,11 @@ for file = files'
         dctCoeff = dct(fbEne);  %dct of log energy
         mfcc = [mfcc;dctCoeff(1:13)];   %taking first 13 mfcc's
     end
-    test{fileNum} = mfcc;
+    testData{fileNum} = mfcc;
     targets = [targets;emo];
     fileNum = fileNum+1;
 end
-save('test','test','targets');
+save('testData','testData','targets');
 clear all;
 %http://stackoverflow.com/questions/28246614/how-to-classsify-with-gaussian-mixture-models-gmm
 

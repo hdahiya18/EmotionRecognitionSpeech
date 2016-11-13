@@ -1,6 +1,6 @@
 clear all; clc; close all;
 
-load('test');
+load('testData');
 load('GMMmodel');
 
 numClasses = 7;
@@ -11,10 +11,10 @@ finalPrediction = [];
 
 for t=1:size(targets,1)
     posteriorSample = [];
-    for f=1:size(test{t},1)
+    for f=1:size(testData{t},1)
         posteriorOnemfcc = [];
         for i=1:numClasses
-            posteriorOnemfcc = [posteriorOnemfcc,log(pdf(gmm{i},test{t}(f,:)))];%posterior(gmm{i},test)]
+            posteriorOnemfcc = [posteriorOnemfcc,log(pdf(gmm{i},testData{t}(f,:)))];%posterior(gmm{i},test)]
         end
         posteriorSample = [posteriorSample;posteriorOnemfcc];
     end

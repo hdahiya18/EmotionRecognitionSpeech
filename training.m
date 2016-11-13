@@ -1,7 +1,7 @@
 close all; clc; clear all;
 
 load('trainData');
-load('test');
+load('testData');
 
 numClasses = 7;
 gmm = {};
